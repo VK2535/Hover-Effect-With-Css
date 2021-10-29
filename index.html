@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .img-hover-zoom {
+            cursor: pointer;
+            overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+        }
+
+        /* [2] Transition property for smooth transformation of images */
+        .img-hover-zoom img {
+        transition: transform .5s ease;
+        }
+
+        /* [3] Finally, transforming the image when container gets hovered */
+        .img-hover-zoom:hover img {
+        transform: scale(1.5);
+        }
+
+
+        /* Quick-zoom Container */
+        .img-hover-zoom--quick-zoom{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+        .img-hover-zoom--quick-zoom img {
+        transform-origin: 0 0;
+        transition: transform .25s, visibility .25s ease-in;
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--quick-zoom:hover img {
+        transform: scale(2);
+        }
+
+
+        /* Zoom-n-rotate Container */
+        .img-hover-zoom--zoom-n-rotate{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+
+        .img-hover-zoom--zoom-n-rotate img {
+        transition: transform .5s ease-in-out;
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--zoom-n-rotate:hover img {
+        transform: scale(2) rotate(25deg);
+        }
+
+
+        /* Point-zoom Container */
+        .img-hover-zoom--point-zoom{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+        .img-hover-zoom--point-zoom img {
+        transform-origin: 65% 75%;
+        transition: transform 1s, filter .5s ease-out;
+
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--point-zoom:hover img {
+        transform: scale(5);
+        }
+
+
+        /* Slow-motion Zoom Container */
+        .img-hover-zoom--slowmo{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+
+        .img-hover-zoom--slowmo img {
+        transform-origin: 50% 65%;
+        transition: transform 5s, filter 3s ease-in-out;
+        filter: brightness(150%);
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--slowmo:hover img {
+        filter: brightness(100%);
+        transform: scale(3);
+        }
+
+
+        /* Brightness-zoom Container */
+        .img-hover-zoom--brightness{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+
+        .img-hover-zoom--brightness img {
+        transition: transform 2s, filter 1.5s ease-in-out;
+        transform-origin: center center;
+        filter: brightness(50%);
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--brightness:hover img {
+        filter: brightness(100%);
+        transform: scale(1.3);
+        }
+
+
+        /* Horizontal Zoom-n-pan Container */
+        .img-hover-zoom--zoom-n-pan-h{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+
+        .img-hover-zoom--zoom-n-pan-h img {
+        transition: transform .5s ease-in-out;
+        transform: scale(1.4);
+        transform-origin: 100% 0;
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--zoom-n-pan-h:hover img {
+        transform: scale(1.5) translateX(30%);
+        }
+
+
+        /* Vertical Zoom-n-pan Container */
+        .img-hover-zoom--zoom-n-pan-v{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+
+        .img-hover-zoom--zoom-n-pan-v img {
+        transition: transform .5s ease-in-out;
+        transform: scale(1.4);
+        transform-origin: 0 0;
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--zoom-n-pan-v:hover img {
+        transform: scale(1.25) translateY(-30%);
+        }
+
+
+        /* Blur-zoom Container */
+        .img-hover-zoom--blur{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+        .img-hover-zoom--blur img {
+        transition: transform 1s, filter 2s ease-in-out;
+        filter: blur(2px);
+        transform: scale(1.2);
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--blur:hover img {
+        filter: blur(0);
+        transform: scale(1);
+        }
+
+
+        /* Colorize-zoom Container */
+        .img-hover-zoom--colorize{
+            cursor: pointer;
+            overflow: hidden; 
+        }
+
+        .img-hover-zoom--colorize img {
+        transition: transform .5s, filter 1.5s ease-in-out;
+        filter: grayscale(100%);
+        }
+
+        /* The Transformation */
+        .img-hover-zoom--colorize:hover img {
+        filter: grayscale(0);
+        transform: scale(1.1);
+        }
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-4 mt-2">
+                <div class="card ">
+                    <div class="body p-2 img-hover-zoom " >
+                        <img src="https://www.parttimely.com/wp-content/uploads/2018/10/beautiful_scenery_01_hd_pictures_166261.jpg" style="width:400px!important;height:300px!important;" alt="">
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Normal Zoom</div>
+                </div>
+            </div>
+            <div class="col-4 mt-2">
+                <div class="card ">
+                    <div class="body p-2 img-hover-zoom--quick-zoom" >
+                        <img src="https://wallpapercave.com/wp/wp3202697.jpg" style="width:400px!important;height:300px!important;" alt="">
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Quick Zoom</div>
+                </div>
+            </div>
+            <div class="col-4 mt-2">
+                <div class="card">
+                    <div class="body p-2 img-hover-zoom--zoom-n-rotate " >
+                        <img src="https://www.goodmorningimagesforlover.com/wp-content/uploads/2019/03/beautiful-flowers-images.jpg" style="width:400px!important;height:300px!important;" alt="">
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Zoom and Rotate</div>
+                </div>
+            </div>
+            <div class="col-4 mt-3">
+                <div class="card">
+                    <div class="body p-2 img-hover-zoom--point-zoom" >
+                        <img src="https://wallpapercave.com/wp/Jbs4L8L.jpg" style="width:400px!important;height:300px!important;" alt="">
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Point Zoom</div>
+                </div>
+            </div>
+            <div class="col-4 mt-3">
+                <div class="card">
+                    <div class="body p-2 img-hover-zoom--slowmo" >
+                        <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509__340.jpg" style="width:400px!important;height:300px!important;" alt="">
+                       
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Slowmo Zoom</div>
+                </div>
+            </div>
+            <div class="col-4 mt-3">
+                <div class="card">
+                    <div class="body p-2 img-hover-zoom--brightness" >
+                        <img src="https://i.ytimg.com/vi/-3N6fCzgXuc/maxresdefault.jpg" style="width:400px!important;height:300px!important;" alt="">
+                        
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Hover Brightness</div>
+                </div>
+            </div>
+            <div class="col-4 mt-3">
+                <div class="card">
+                    <div class="body p-2 img-hover-zoom--zoom-n-pan-h" >
+                        <img src="https://wallpapercave.com/wp/wp3202677.jpg" style="width:400px!important;height:300px!important;" alt="">
+                        
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Zoom n pan h</div>
+                </div>
+            </div>
+            <div class="col-4 mt-3">
+                <div class="card">
+                    <div class="body p-2 img-hover-zoom--zoom-n-pan-v" >
+                        <img src="https://cutewallpaper.org/21/beautiful-dp-for-whatsapp/beautiful-dp-wallpaper-hd-download-beautiful-dp-beautiful-.jpg" style="width:400px!important;height:300px!important;" alt="">
+                        
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Zoom n pan v</div>
+                </div>
+            </div>
+            <div class="col-4 mt-3">
+                <div class="card">
+                    <div class="body p-2 img-hover-zoom--blur" >
+                        <img src="https://www.wallpapertip.com/wmimgs/26-268902_beautiful-background-desktop-nature.jpg" style="width:400px!important;height:300px!important;" alt="">
+                        
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Zoom Blur</div>
+                </div>
+            </div>
+            <div class="col-4 mt-3">
+                <div class="card">
+                    <div class="body p-2 img-hover-zoom--colorize" >
+                        <img src="https://www.adventuredragon.com/wp-content/uploads/2017/11/Crab-Creek-Broome-Australia-red-dirt-meets-sea.jpg" style="width:400px!important;height:300px!important;" alt="">
+                        
+                    </div>
+                    <div class="card-text fw-bolder fs-4 text-center">Colorize Zoom</div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
